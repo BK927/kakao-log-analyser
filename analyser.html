@@ -8,15 +8,28 @@
         <link rel="stylesheet" href="./css/analyser.css">
     </head>
     <body>
-        <div class="container"i
+        <div class="container">
             <h2>카카오톡 대화 내보내기 기능을 사용해서 파일을 업로드 해 주세요</h2>
             <div class="filebox" >
                 <label for="file-input">업로드</label>
                 <input type="file" accept=".txt" id="file-input">
             </div>
-            <h3>파일 내용:</h3>
-            <pre id="file-content"></pre>
+            <h4>해쉬 코드:</h4>
+            <h4 id="hash-code"></h4>
+            <h4>가장 자주 언급된 단어</h4>
+            <div id='text-cloud'></div>
+            <h4>가장 채팅방에서 말이 많은 사람</h4>
+            <div id="nickname-chart"></div>
+            <h4>가장 활발한 시간대</h4>
+            <div id="time-chart"></div>
+            <h4>가장 활발한 요일</h4>
+            <div id="day-chart"></div>
+            <h4>파일 내용:</h4>
+            <div id='script-container'>
+                <p class="toggle-btn">▼ 펼치기</p>
+                <pre id="file-content" class="hide"></pre>
+            </div>
         </div>
-        <script src="./js/analyser.js" type="module"></script>
+        <script src="./js/analyser_entry.js" type="module"></script>
     </body>
 </html>

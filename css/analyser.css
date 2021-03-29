@@ -8,6 +8,10 @@ body{
     color: white;
 }
 
+.hide {
+  display: none;
+}
+
 .container {
     margin: auto;
     width: max-content;
@@ -17,6 +21,10 @@ body{
 .container * {
     margin: auto 10;
     width: max-content;
+}
+
+.toggle-btn {
+  cursor: pointer;
 }
   
   .filebox {display:inline-block; margin-right: 10px;}
