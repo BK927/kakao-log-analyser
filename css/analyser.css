@@ -1,0 +1,55 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body{
+    display: flex;
+    background-color: #121212;
+    color: white;
+}
+
+.container {
+    margin: auto;
+    width: max-content;
+    justify-content: center;
+    flex-direction: column;
+}
+.container * {
+    margin: auto 10;
+    width: max-content;
+}
+  
+  .filebox {display:inline-block; margin-right: 10px;}
+
+  .filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #fff;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    cursor: pointer;
+    border-radius: .25em;
+  }
+  
+
+  .filebox input[type="file"] {  /* 파일 필드 숨기기 */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip:rect(0,0,0,0);
+    border: 0;
+  }
+  
+  
+  .filebox.bs3-success label {
+    color: #fff;
+    background-color: #5cb85c;
+      border-color: #4cae4c;
+  }
+
