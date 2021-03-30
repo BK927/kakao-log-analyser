@@ -1,7 +1,8 @@
-import {generateHash} from '/js/md5_min.js'
+import {generateHash} from '/js/min.md5.js'
 
 let scriptProfile = {}
 let scriptData = null;
+let splittedScript;
 const toggledText = '▲ 접기'
 const notToggledText = '▼ 펼치기'
 
@@ -47,6 +48,7 @@ function toogleSection(e) {
   }
 }
 
+//File
 function readSingleFile(e) {
   const file = e.target.files[0];
   if (!file) {
@@ -60,6 +62,7 @@ function readSingleFile(e) {
 function initiateFile(e) {
   const contents = e.target.result;
   scriptData = e.target.result;
+  splittedScript = scriptData.split('\n');
   const md5 = generateHash(contents);
   displayHash(md5);
   displayFileContent(contents);
