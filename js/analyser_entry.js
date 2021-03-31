@@ -1,11 +1,5 @@
 import { generateHash } from "/js/min.md5.js";
-import {
-  LangEnum,
-  detectLanguage,
-  parseDate,
-  parseName,
-  parseChatting,
-} from "/js/script_parsing.js";
+import { LangEnum, detectLanguage, parseDate, parseName, parseChatting } from "/js/script_parsing.js";
 import * as Chart from "/js/draw_chart.js";
 
 let scriptProfile = {
@@ -20,15 +14,7 @@ const notToggledText = "▼ 펼치기";
 
 //Script
 function getDayLabel(day) {
-  var week = new Array(
-    "일요일",
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요일"
-  );
+  var week = new Array("일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일");
   var dayLabel = week[day];
   return dayLabel;
 }
@@ -122,28 +108,12 @@ function displayFrequncy() {
 
     const nameItem = document.createElement("p");
     nameItem.textContent =
-      String(i + 1) +
-      "위: " +
-      name +
-      "(" +
-      String((nameFreq / splittedScript.length) * 100) +
-      "%)";
+      String(i + 1) + "위: " + name + "(" + String((nameFreq / splittedScript.length) * 100) + "%)";
     const timeItem = document.createElement("p");
     timeItem.textContent =
-      String(i + 1) +
-      "위: " +
-      hour +
-      "시 (" +
-      String((hourFreq / splittedScript.length) * 100) +
-      "%)";
+      String(i + 1) + "위: " + hour + "시 (" + String((hourFreq / splittedScript.length) * 100) + "%)";
     const dayItem = document.createElement("p");
-    dayItem.textContent =
-      String(i + 1) +
-      "위: " +
-      day +
-      "(" +
-      String((dayFreq / splittedScript.length) * 100) +
-      "%)";
+    dayItem.textContent = String(i + 1) + "위: " + day + "(" + String((dayFreq / splittedScript.length) * 100) + "%)";
 
     nameContainer.append(nameItem);
     timeContainer.append(timeItem);
@@ -208,12 +178,8 @@ function initiateFile(e) {
 }
 
 function main() {
-  document
-    .getElementById("file-input")
-    .addEventListener("change", readSingleFile, false);
-  document
-    .querySelector(".toggle-btn")
-    .addEventListener("click", toogleSection);
+  document.getElementById("file-input").addEventListener("change", readSingleFile, false);
+  document.querySelector(".toggle-btn").addEventListener("click", toogleSection);
 }
 
 main();
