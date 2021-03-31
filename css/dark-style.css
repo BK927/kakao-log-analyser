@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+
+:root {
+  --background-color: #121212;
+  --surface-01dp: rgba(255, 255, 255, 0.05);
+  --surface-02dp: rgba(255, 255, 255, 0.07);
+  --font-color: white;
+  --high-emphasis: rgba(255, 255, 255, 0.87);
+  --midium-emphasis: rgba(255, 255, 255, 0.6);
+  --disable: rgba(255, 255, 255, 0.38);
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --primary-color: #ffeb3b;
+  --primary-variant-color: #fbc02d;
+  --secondary-color: #ef9a9a;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+html * {
+  transition: all 0.3s ease-in;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  display: block;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+pre {
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+canvas {
+  width: 100%;
+  height: 0px;
+}
+
+.active-canvas {
+  height: 500px;
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  background-color: var(--surface-01dp);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  margin: auto;
+  padding: 20px 30px;
+  max-width: 900px;
+  min-width: 300px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container > article {
+  background-color: var(--surface-02dp);
+  border-radius: 5px;
+  margin: 15px 0px;
+  padding: 5px 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.container > article > h4 {
+  display: block;
+  color: var(--high-emphasis);
+  margin-bottom: 10px;
+}
+
+header {
+  width: fit-content;
+  margin: 0 auto;
+  display: block;
+}
+
+header > h2 {
+  display: inline;
+  margin-right: 20px;
+}
+
+.filebox {
+  display: inline;
+}
+
+.filebox label {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  color: #fff;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: var(--secondary-color);
+  border-color: var(--primary-variant-color);
+  cursor: pointer;
+  border-radius: 0.25em;
+  transition: all 0.5s ease-in;
+}
+
+.filebox label:hover {
+  background-color: var(--primary-color);
+}
+
+.filebox input[type="file"] {
+  /* 파일 필드 숨기기 */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
