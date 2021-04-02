@@ -1,30 +1,27 @@
-function generateRandomRGB() {
-  const getRandomInt = function (max) {
-    return Math.floor(Math.random() * Math.floor(max));
+export function createBarChart(domNode, label, labels, values) {
+  const generateRandomRGB = function() {
+    const getRandomInt = function (max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    };
+  
+    const red = getRandomInt(256);
+    const green = getRandomInt(256);
+    const blue = getRandomInt(256);
+  
+    return (
+      "rgba(" +
+      red.toString() +
+      ", " +
+      green.toString() +
+      ", " +
+      blue.toString() +
+      ", "
+    );
   };
 
-  const red = getRandomInt(256);
-  const green = getRandomInt(256);
-  const blue = getRandomInt(256);
-
-  return (
-    "rgba(" +
-    red.toString() +
-    ", " +
-    green.toString() +
-    ", " +
-    blue.toString() +
-    ", "
-  );
-}
-
-function generateRandomRGBA(alpha) {
-  return generateRandomRGB() + alpha.toString() + ")";
-}
-
-export function generateBarChart(domNode, label, labels, values) {
   const backgoundColor = [];
   const borderColor = [];
+
   values.forEach((element) => {
     const rgb = generateRandomRGB();
     backgoundColor.push(rgb + "0.8)");
