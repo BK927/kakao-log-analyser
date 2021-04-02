@@ -26,36 +26,38 @@
             
             <article>
                 <h4>가장 자주 언급된 단어</h4>
-            <div id='text-cloud'></div>
+                <div id='text-cloud'></div>
             </article>
             
             <article>
-                <h4>가장 채팅방에서 말이 많은 사람</h4>
-                <canvas id="name-chart"></div>
+                <h4>채팅방에서 말을 가장 많이 한 사람</h4>
+                <canvas id="name-chart"></canvas>
                 <div id="name-ranking"></div>
             </article>
             
             <article>
                 <h4>가장 활발한 시간대</h4>
-                <canvas id="time-chart"></div>
+                <canvas id="time-chart"></canvas>
                 <div id="time-ranking"></div>
             </article>
             
             <article>
                 <h4>가장 활발한 요일</h4>
-                <canvas id="day-chart"></div>
+                <canvas id="day-chart"></canvas>
                 <div id="day-ranking"></div>
             </article>
             
             <article>
                 <h4>파일 내용:</h4>
                 <div id='script-container'>
-                    <h5 class="toggle-btn">▼ 펼치기</h5>
-                    <pre id="file-content" class="hide"></pre>
+                    <h5 class="toggle-btn"></h5>
+                    <pre id="file-content"></pre>
                 </div>
             </article>
         </section>
         <script src="https://kit.fontawesome.com/b726a99d60.js" crossorigin="anonymous"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
         <script src="./js/analyser_entry.js" type="module"></script>
     </body>
