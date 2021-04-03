@@ -1,22 +1,14 @@
 export function createBarChart(domNode, label, labels, values) {
-  const generateRandomRGB = function() {
+  const generateRandomRGB = function () {
     const getRandomInt = function (max) {
       return Math.floor(Math.random() * Math.floor(max));
     };
-  
+
     const red = getRandomInt(256);
     const green = getRandomInt(256);
     const blue = getRandomInt(256);
-  
-    return (
-      "rgba(" +
-      red.toString() +
-      ", " +
-      green.toString() +
-      ", " +
-      blue.toString() +
-      ", "
-    );
+
+    return "rgba(" + red.toString() + ", " + green.toString() + ", " + blue.toString() + ", ";
   };
 
   const backgoundColor = [];
@@ -43,6 +35,8 @@ export function createBarChart(domNode, label, labels, values) {
       ],
     },
     options: {
+      responsive: false,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [
           {

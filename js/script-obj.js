@@ -4,6 +4,7 @@ export const LangEnum = Object.freeze({ ko: 0, en: 1, jp: 2 });
 const KO_DATE_REGEX = /(?<=\n)\d{4}년\s\d{1,2}월\s\d{1,2}일\s((오전)|(오후))\s\d{1,2}:\d{1,2}(?=,)/g;
 const KO_NAME_REGEX = /(?<=(\d{4}년\s\d{1,2}월\s\d{1,2}일\s((오전)|(오후))\s\d{1,2}:\d{1,2},\s)).+?(?=\s:\s)/g;
 const KO_CHATTING_REGEX = /(?<=(\d{4}년\s\d{1,2}월\s\d{1,2}일\s((오전)|(오후))\s\d{1,2}:\d{1,2},\s.+\s:\s)).+/g
+const KO_REGEX_WORDS_FILTER = /(ㅋ+)|(ㅇ+)|(ㅎ+)|(사진)|(이모티콘)|(ㅇㅅㅇ)|(ㄹㄱㄴ)|(ㅗㅜㅑ)|(샵검색:)|(아니)|(저거)|(와)|(왜)|(진짜)|(이제)|(근데)|(난)|(내가)|(지금)|(이거)|(그리고)|(요즘)|(그냥)|(너무)/g
 const postposition = ['이', '가', '께서', '에서', '서', '이다', '의', '을', '를', '에', '에게', '께', '한테', '에서', '에게서', '로', '로서', '고', '라고', '이라고', '와', '과', '랑', '이랑', '처럼', '만큼', '요', '밖에', '이나', '이란', '이든가', '이든지', '이나마', '이야말로'];
 
 export function createScriptObj(content){
@@ -63,7 +64,8 @@ export function createScriptObj(content){
 
   const parseWords = function(script){
     let words =[]
-    const chattingLines = script.match(KO_CHATTING_REGEX);
+    const trimmed = script.replaceAll(KO_REGEX_WORDS_FILTER, ' ');
+    const chattingLines = trimmed.match(KO_CHATTING_REGEX);
     chattingLines.forEach(element => {
       words = words.concat(element.split(' '));
     });
@@ -109,15 +111,16 @@ export function createScriptObj(content){
   const md5Hash = generateHash(content);
   const script = content;
   const parsedDates = parseToDateArray(script);
-  const parsedWords = parseWords(script);
+  //const parsedWords = parseWords(script);
   //Support Korean only for now
   const lang = /(?<=\n)(저장한 날짜)\s:\s\d{4}년\s\d{1,2}월\s\d{1,2}일\s((오전)|(오후))\s\d{1,2}:\d{1,2}(?=\n)/.test(script)?LangEnum.ko : null;
-  const wordFrequency = countWordsFrequency(parsedWords);
+  //const wordFrequency = countWordsFrequency(parsedWords);
   const nameFrequency = countNameFrequnecy(script);
   const dayFrequency = countDayFrequency(parsedDates);
   const hourFrequency = countHourFreqeuncy(parsedDates);
   const beginDate = parsedDates[0];
   const endDate = parsedDates[parsedDates.length - 1];
+  const numberOfLines = parsedDates.length;
 
   return {
     getMd5Hash: () => {return md5Hash;},
@@ -126,7 +129,7 @@ export function createScriptObj(content){
 
     getScript: () => {return script;},
 
-    getWordFrequency: () => {return wordFrequency;},
+    //getWordFrequency: () => {return wordFrequency;},
 
     getNameFrequency: () => {return nameFrequency;},
 
@@ -136,6 +139,8 @@ export function createScriptObj(content){
 
     getBeginDate: () => {return beginDate;},
 
-    getEndDate: () => {return endDate}
+    getEndDate: () => {return endDate},
+
+    getnumberOfLines: numberOfLines
   };
 }

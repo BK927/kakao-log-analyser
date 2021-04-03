@@ -34,35 +34,40 @@
       </header>
 
       <article>
-        <h4>해쉬 코드</h4>
+        <h3>해쉬 코드</h3>
         <h4 id="hash-code"></h4>
       </article>
 
       <article>
-        <h4>가장 자주 언급된 단어</h4>
+        <h3>집계 기간</h3>
+        <h4 id="period"></h4>
+      </article>
+
+      <article class='wip'>
+        <h3>가장 자주 언급된 단어</h3>
         <div id="text-cloud"></div>
       </article>
 
       <article>
-        <h4>채팅방에서 말을 가장 많이 한 사람</h4>
+        <h3>채팅방에서 말을 가장 많이 한 사람</h3>
         <canvas id="name-chart"></canvas>
-        <div id="name-ranking"></div>
+        <ol id="name-ranking"></ol>
       </article>
 
       <article>
-        <h4>가장 활발한 시간대</h4>
+        <h3>가장 활발한 시간대</h3>
         <canvas id="time-chart"></canvas>
-        <div id="time-ranking"></div>
+        <ol id="time-ranking"></ol>
       </article>
 
       <article>
-        <h4>가장 활발한 요일</h4>
+        <h3>가장 활발한 요일</h3>
         <canvas id="day-chart"></canvas>
-        <div id="day-ranking"></div>
+        <ol id="day-ranking"></ol>
       </article>
 
       <article>
-        <h4>파일 내용:</h4>
+        <h3>파일 내용:</h3>
         <div id="script-container">
           <h5 class="toggle-btn"></h5>
           <pre id="file-content"></pre>
@@ -73,6 +78,6 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="./js/analyser-entry.js" type="module"></script>
+    <script src="./js/main.js" type="module"></script>
   </body>
 </html>

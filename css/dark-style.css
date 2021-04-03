@@ -4,6 +4,13 @@
   --background-color: #121212;
   --surface-01dp: rgba(255, 255, 255, 0.05);
   --surface-02dp: rgba(255, 255, 255, 0.07);
+  --surface-03dp: rgba(255, 255, 255, 0.08);
+  --surface-04dp: rgba(255, 255, 255, 0.09);
+  --surface-06dp: rgba(255, 255, 255, 0.11);
+  --surface-08dp: rgba(255, 255, 255, 0.12);
+  --surface-12dp: rgba(255, 255, 255, 0.14);
+  --surface-16dp: rgba(255, 255, 255, 0.15);
+  --surface-24dp: rgba(255, 255, 255, 0.16);
   --font-color: white;
   --high-emphasis: rgba(255, 255, 255, 0.87);
   --midium-emphasis: rgba(255, 255, 255, 0.6);
@@ -12,6 +19,10 @@
   --primary-color: #ffeb3b;
   --primary-variant-color: #fbc02d;
   --secondary-color: #ef9a9a;
+}
+
+.wip {
+  display: none!important;
 }
 
 html,
@@ -40,10 +51,18 @@ body * {
 
 pre {
   visibility: hidden;
+  width: 97%;
   height: 0vh;
-  overflow: auto;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--surface-03dp);
+
   overflow-y: scroll;
   white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-align: justify;
 }
 
 pre.active {
@@ -126,10 +145,41 @@ header > h2 {
   opacity: 0;
 }
 
-.container > article > h4 {
+.container > article > h3 {
   display: block;
   color: var(--high-emphasis);
   margin-bottom: 10px;
+}
+
+article > canvas {
+  width: 100%;
+}
+
+article ol{
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+  counter-reset: list;
+}
+
+ol li:before {
+  content: counter(list) ". ";
+}
+
+article  ol  li {
+  padding: 5px 5px 5px 0px;
+  margin: 3px 0;
+  background-color: var(--surface-03dp);
+  counter-increment: list;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+article  ol  li:hover {
+  background-color: var(--midium-emphasis);
 }
 
 .container > article.active {

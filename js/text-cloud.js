@@ -1,8 +1,8 @@
-export function wordCloud(selector, wordListParm, widthParm, heightParm) {
+export function wordCloud(selector, wordsMapParm, widthParm, heightParm) {
   var fill = d3.scale.category20();
   let width = widthParm;
   let height = heightParm;
-  let wordList = wordListParm;
+  let wordsMap = wordsMapParm;
 
   //Construct the word cloud's SVG element
   var svg = d3
@@ -11,7 +11,7 @@ export function wordCloud(selector, wordListParm, widthParm, heightParm) {
     .attr("width", width)
     .attr("height", height)
     .append("g")
-    .attr("transform", "translate(250,250)");
+    .attr("transform", "translate(" + String(width/2) + ", " + String(height/2) + ")");
 
   //Draw the word cloud
   function draw(words) {
@@ -57,7 +57,7 @@ export function wordCloud(selector, wordListParm, widthParm, heightParm) {
     //The outside world will need to call this function, so make it part
     // of the wordCloud return value.
     update: function (words) {
-      wordList = words;
+      wordsMap = words;
       d3.layout
         .cloud()
         .size([width, height])
@@ -78,7 +78,7 @@ export function wordCloud(selector, wordListParm, widthParm, heightParm) {
     
     updateSize: function (w, h) {
       this.setSize(w, h);
-      this.update(wordList);
+      this.update(wordsMap);
     },
   };
 }
