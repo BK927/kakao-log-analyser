@@ -37,11 +37,35 @@ export function createBarChart(domNode, label, labels, values) {
     options: {
       responsive: false,
       maintainAspectRatio: true,
+      legend: {
+        labels: {
+          fontColor: "white",
+          fontSize: 18,
+        },
+      },
       scales: {
+        xAxes: [
+          {
+            ticks: {
+              fontColor: "white",
+              fontSize: 18,
+            },
+            gridLines: {
+              color: "rgba(255, 255, 255, 0.11)",
+              lineWidth: 3,
+            },
+          },
+        ],
         yAxes: [
           {
             ticks: {
               beginAtZero: true,
+              fontColor: "white",
+              fontSize: 18,
+            },
+            gridLines: {
+              color: "rgba(255, 255, 255, 0.11)",
+              lineWidth: 3,
             },
           },
         ],

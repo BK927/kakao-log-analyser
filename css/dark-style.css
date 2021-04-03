@@ -36,6 +36,7 @@ body {
 
 body {
   font-family: "Noto Sans KR", sans-serif;
+  font-size: 120%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -83,7 +84,7 @@ header > h2 {
 }
 
 .filebox {
-  width: 100px;
+  width: 110px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -129,7 +130,7 @@ header > h2 {
   box-shadow: var(--box-shadow);
   margin: 20px 0;
   padding: 20px 30px;
-  max-width: 900px;
+  max-width: 1400px;
 }
 
 .container > article {
@@ -138,21 +139,36 @@ header > h2 {
   background-color: var(--surface-02dp);
   border-radius: 5px;
   margin: 0px;
-  padding: 0px;
+  padding: 10px 2%;
   box-shadow: var(--box-shadow);
   height: 0vh;
   overflow: hidden;
   opacity: 0;
 }
 
+.container > article.active {
+  display: block;
+  height: max-content;
+  opacity: 1;
+  margin: 20px 0px;
+
+  -webkit-animation: fadeInFromNone 0.8s ease-out;
+  -moz-animation: fadeInFromNone 0.8s ease-out;
+  -o-animation: fadeInFromNone 0.8s ease-out;
+  animation: fadeInFromNone 0.8s ease-out;
+}
+
 .container > article > h3 {
   display: block;
   color: var(--high-emphasis);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 article > canvas {
   width: 100%;
+  background-color: var(--surface-03dp);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
 }
 
 article ol{
@@ -167,10 +183,11 @@ article ol{
 
 ol li:before {
   content: counter(list) ". ";
+  padding-left: 15px;
 }
 
 article  ol  li {
-  padding: 5px 5px 5px 0px;
+  padding: 8px 5px 8px 0px;
   margin: 3px 0;
   background-color: var(--surface-03dp);
   counter-increment: list;
@@ -180,19 +197,6 @@ article  ol  li {
 
 article  ol  li:hover {
   background-color: var(--midium-emphasis);
-}
-
-.container > article.active {
-  display: block;
-  height: max-content;
-  opacity: 1;
-  margin: 20px 0px;
-  padding: 5px 10px;
-
-  -webkit-animation: fadeInFromNone 0.8s ease-out;
-  -moz-animation: fadeInFromNone 0.8s ease-out;
-  -o-animation: fadeInFromNone 0.8s ease-out;
-  animation: fadeInFromNone 0.8s ease-out;
 }
 
 .toggle-btn{
@@ -213,7 +217,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   1% {
@@ -221,7 +224,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   50% {
@@ -229,7 +231,6 @@ article  ol  li:hover {
     opacity: 0;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 
   100% {
@@ -237,7 +238,6 @@ article  ol  li:hover {
     opacity: 1;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 }
 
@@ -247,7 +247,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   1% {
@@ -255,7 +254,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   50% {
@@ -263,7 +261,6 @@ article  ol  li:hover {
     opacity: 0;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 
   100% {
@@ -271,7 +268,6 @@ article  ol  li:hover {
     opacity: 1;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 }
 
@@ -281,7 +277,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   1% {
@@ -289,7 +284,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   50% {
@@ -297,7 +291,6 @@ article  ol  li:hover {
     opacity: 0;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 
   100% {
@@ -305,7 +298,6 @@ article  ol  li:hover {
     opacity: 1;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 }
 
@@ -315,7 +307,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   1% {
@@ -323,7 +314,6 @@ article  ol  li:hover {
     opacity: 0;
     height: 0vh;
     margin: 0;
-    padding: 0;
   }
 
   50% {
@@ -331,7 +321,6 @@ article  ol  li:hover {
     opacity: 0;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 
   100% {
@@ -339,7 +328,6 @@ article  ol  li:hover {
     opacity: 1;
     height: max-content;
     margin: 20px 0px;
-    padding: 5px 10px;
   }
 }
 
@@ -361,4 +349,9 @@ article  ol  li:hover {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 20px;
   border: 0px solid orange;
+}
+
+footer {
+  display: block;
+  text-align: center;
 }

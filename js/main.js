@@ -57,7 +57,15 @@ function readSingleFile(e) {
 
   const displayPeriod = function (beginDate, endDate) {
     const node = document.querySelector('#period');
-    node.textContent = String(beginDate) + ' ~ ' + String(endDate);
+    const convertDate = function (date) {
+      const year = String(date.getFullYear()) +'년';
+      const month = String(date.getMonth() + 1) + '월';
+      const day = String(date.getDate()) + '일';
+
+      return year + ' ' + month + ' ' + day;
+    };
+
+    node.textContent = convertDate(beginDate) + ' ~ ' + convertDate(endDate);
   }
 
   const drawTextCloud = function (wordFrequency) {

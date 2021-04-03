@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="./css/dark-style.css" />
+    <link rel="stylesheet" href="/css/dark-style.css" />
   </head>
   <body>
     <section class="container">
@@ -43,7 +43,7 @@
         <h4 id="period"></h4>
       </article>
 
-      <article class='wip'>
+      <article class="wip">
         <h3>가장 자주 언급된 단어</h3>
         <div id="text-cloud"></div>
       </article>
@@ -73,7 +73,21 @@
           <pre id="file-content"></pre>
         </div>
       </article>
+      <footer>
+        <p>Made by <a href="https://github.com/BK927">BK927</a></p>
+      </footer>
     </section>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NY2S0JH0B0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-NY2S0JH0B0");
+    </script>
     <script src="https://kit.fontawesome.com/b726a99d60.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
