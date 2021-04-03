@@ -1,12 +1,15 @@
-export function wordCloud(selector) {
+export function wordCloud(selector, wordListParm, widthParm, heightParm) {
   var fill = d3.scale.category20();
+  let width = widthParm;
+  let height = heightParm;
+  let wordList = wordListParm;
 
   //Construct the word cloud's SVG element
   var svg = d3
     .select(selector)
     .append("svg")
-    .attr("width", 500)
-    .attr("height", 500)
+    .attr("width", width)
+    .attr("height", height)
     .append("g")
     .attr("transform", "translate(250,250)");
 
@@ -54,13 +57,10 @@ export function wordCloud(selector) {
     //The outside world will need to call this function, so make it part
     // of the wordCloud return value.
     update: function (words) {
-      const parsedWords = words.map(function (d) {
-        return { text: d, size: 10 + Math.random() * 90 };
-      });
-
+      wordList = words;
       d3.layout
         .cloud()
-        .size([500, 500])
+        .size([width, height])
         .words(words)
         .padding(5)
         .rotate(function () {
@@ -72,6 +72,13 @@ export function wordCloud(selector) {
         })
         .on("end", draw)
         .start();
+    },
+
+    setSize: (w, h) => {width = w; height = h;},
+    
+    updateSize: function (w, h) {
+      this.setSize(w, h);
+      this.update(wordList);
     },
   };
 }
