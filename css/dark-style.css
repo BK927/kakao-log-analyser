@@ -145,6 +145,10 @@ header > h2 {
   animation: fadeInFromNone 0.8s ease-out;
 }
 
+.toggle-btn{
+  cursor: pointer;
+}
+
 .toggle-btn::after {
   content: "▼ 펼치기";
 }
@@ -287,4 +291,24 @@ header > h2 {
     margin: 20px 0px;
     padding: 5px 10px;
   }
+}
+
+/* The emerging W3C standard
+   that is currently Firefox-only */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.8) rgba(255, 255, 255, 0.4);
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.8);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  border: 0px solid orange;
 }

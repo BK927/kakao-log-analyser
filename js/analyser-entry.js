@@ -50,33 +50,37 @@ function readSingleFile(e) {
     const chartNode = document.querySelector('#name-chart');
     const textNode = document.querySelector('#name-ranking');
     const top5 = nameFrequency.slice(0, 5);
-    const chart = drawChart(chartNode, '이름', top5);
+    const chart = drawChart(chartNode, top5);
     showRankText(textNode, nameFrequency);
   };
 
   const displayDayArticle = function (dayFrequency){
     const chartNode = document.querySelector('#day-chart');
     const textNode = document.querySelector('#day-ranking');
-    const chart = drawChart(chartNode, '요일', dayFrequency);
+    const chart = drawChart(chartNode, dayFrequency);
     showRankText(textNode, dayFrequency);
   };
 
   const displayHourArticle = function(hourFrequency){
     const chartNode = document.querySelector('#time-chart');
     const textNode = document.querySelector('#time-ranking');
-    const top7 = hourFrequency.slice(0, 7);
-    const chart = drawChart(chartNode, '시간', top7);
-    showRankText(textNode, hourFrequency);
+    const strAdded = [...hourFrequency];
+    for(let i = 0; i < strAdded.length; i++){
+      strAdded[i][0] += '시';
+    }
+    const top7 = strAdded.slice(0, 7);
+    const chart = drawChart(chartNode, top7);
+    showRankText(textNode, strAdded);
   }
 
-  const drawChart = function(domNode, label, frquencyList){
+  const drawChart = function(domNode, frquencyList){
     const labels = [];
     const values = [];
     frquencyList.forEach(element => {
       labels.push(element[0]);
       values.push(element[1]);
     });
-    return Chart.createBarChart(domNode, label, labels, values);
+    return Chart.createBarChart(domNode, '횟수', labels, values);
   };
 
   const showRankText = function (domNode, list, cutline = -1) {
